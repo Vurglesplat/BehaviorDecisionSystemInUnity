@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Deciding what actions are available to the system, and hard removing those that are not.
+/// This should work relative to the player's context.
+/// </summary>
+
 public class BehaviourDecisionSystem : MonoBehaviour
 {
 
@@ -35,7 +41,7 @@ public class BehaviourDecisionSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        checkForNewActionConditions();
+        CheckForNewActionConditions();
 
         updateStatValues();
         BehaviorSnippet currentSnippet = evalTree.FindCurrentAction();
@@ -61,7 +67,7 @@ public class BehaviourDecisionSystem : MonoBehaviour
         hungerSlider.value = hunger;
         energySlider.value = energy;
     }
-    void checkForNewActionConditions()
+    public void CheckForNewActionConditions()
     {
         if (hunger < 0.7f)
         {
@@ -69,40 +75,44 @@ public class BehaviourDecisionSystem : MonoBehaviour
 
             if (GameObject.FindGameObjectWithTag("Bread"))
             {
-                Debug.Log("Got Bread, will eat.");
-                if (evalTree.currActionsShortlist[(int)UtilityValues.GET_BREAD] == false)
+                Debug.Log("Got Bread, will try to eat.");
+                if (evalTree.currActionsShortlist[(int)UtilityType.GET_BREAD] == false)
                 {
-                    evalTree.currActionsShortlist[(int)UtilityValues.GET_BREAD] = true;
-                    evalTree.availableActions.Add(new GetBread(GameObject.FindGameObjectWithTag("Bread")));
+                    evalTree.currActionsShortlist[(int)UtilityType.GET_BREAD] = true;
+                    evalTree.availableActions.Add(new GetBread(GameObject.FindGameObjectWithTag("Bread"), this));
                 }
             }
             else
             {
                 Debug.Log("No bread found, I'll make some");
-                if (evalTree.currActionsShortlist[(int)UtilityValues.MAKE_BREAD] == false)
+                if (evalTree.currActionsShortlist[(int)UtilityType.MAKE_BREAD] == false)
                 {
-                    evalTree.currActionsShortlist[(int)UtilityValues.MAKE_BREAD] = true;
+                    evalTree.currActionsShortlist[(int)UtilityType.MAKE_BREAD] = true;
                     evalTree.availableActions.Add(new MakeBread(oven, wheatfield));
                 }
             }
         }
         else
         {
-            Debug.Log("No longer hungry");
-            if (evalTree.currActionsShortlist[(int)UtilityValues.MAKE_BREAD] || evalTree.currActionsShortlist[(int)UtilityValues.GET_BREAD])
-            {
-                evalTree.availableActions.RemoveAll(isHungerRelated);
-                evalTree.currActionsShortlist[(int)UtilityValues.MAKE_BREAD] = false;
-                evalTree.currActionsShortlist[(int)UtilityValues.GET_BREAD] = false;
-
-            }
+            Debug.Log("Not hungry");
+            ClearHungerConditions();
 
         }
     }
 
-    static bool isHungerRelated (BehaviorSnippet x)
+    public void ClearHungerConditions()
     {
-        if (x.utilityValue == (int)UtilityValues.MAKE_BREAD || x.utilityValue == (int)UtilityValues.GET_BREAD)
+        if (evalTree.currActionsShortlist[(int)UtilityType.MAKE_BREAD] || evalTree.currActionsShortlist[(int)UtilityType.GET_BREAD])
+        {
+            evalTree.availableActions.RemoveAll(IsHungerRelated);
+            evalTree.currActionsShortlist[(int)UtilityType.MAKE_BREAD] = false;
+            evalTree.currActionsShortlist[(int)UtilityType.GET_BREAD] = false;
+        }
+    }
+
+    static bool IsHungerRelated (BehaviorSnippet x)
+    {
+        if (x.typeOfAction == UtilityType.MAKE_BREAD || x.typeOfAction == UtilityType.GET_BREAD)
             return true;
         else
             return false;

@@ -4,26 +4,27 @@ using UnityEngine;
 
 [System.Serializable]
 
-
+/// <summary>
+/// Deciding which action that is available is acted upon. This should work relative to each action's context.
+/// </summary>
 public class EvaluationTree
 {
-
     [HideInInspector] public BehaviourDecisionSystem behaveSys;
 
     
     public List<BehaviorSnippet> availableActions = new List<BehaviorSnippet>();
     //private void Method<BehaviorSnippet>(List<BehaviourSnippet> foos)
-    public bool[] currActionsShortlist = new bool[(int)UtilityValues.TOTAL_UTILITY_VALUES];
+    public bool[] currActionsShortlist = new bool[(int)UtilityType.TOTAL_UTILITY_VALUES];
 
 
     public void setup(GameObject TV)
     {
-        for (int i = 0; i < (int)UtilityValues.TOTAL_UTILITY_VALUES; i++)
+        for (int i = 0; i < (int)UtilityType.TOTAL_UTILITY_VALUES; i++)
         {
             currActionsShortlist[i] = false;
         }
 
-        currActionsShortlist[(int)UtilityValues.WATCHING_TV] = true;
+        currActionsShortlist[(int)UtilityType.WATCHING_TV] = true;
         availableActions.Add(new WatchTV(TV));
     }
 
@@ -37,8 +38,10 @@ public class EvaluationTree
                 currentHighest = current;
             }
 
-            if (current.utilityValue > currentHighest.utilityValue)
+            if (current.typeOfAction > currentHighest.typeOfAction)
             {
+                //  TODO
+                Debug.LogWarning("Evaluating based off of type, not value");
                 currentHighest = current;
             }
         }
