@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// Deciding what actions are available to the system, and hard removing those that are not.
@@ -15,16 +16,29 @@ public class BehaviourDecisionSystem : MonoBehaviour
     [SerializeField] GameObject TV;
     [SerializeField] GameObject oven;
     [SerializeField] GameObject wheatfield;
-    [SerializeField] UnityEngine.UI.Slider hungerSlider;
-    [SerializeField] UnityEngine.UI.Slider energySlider;
+
+    [Header("UI Assignments")]
+    [Space]
+    [SerializeField] TextMeshProUGUI currentActionHeader;
+    [SerializeField] TextMeshProUGUI currentGoalHeader;
+    [Space]
+    [SerializeField] Image hungerSlider;
+    [SerializeField] Image energySlider;
+    [SerializeField] Image socialSlider;
+
+
     [Space] [Space]
     [SerializeField] EvaluationTree evalTree = new EvaluationTree(); 
     [Space] [Space]
-    [Range(0.0f,1.0f)] public float hunger = 1.0f;
+    
+    [Range(0.0f, 1.0f)] public float hunger = 1.0f;
     [Range(0.0f, 1.0f)] public float energy  = 1.0f;
+    [Range(0.0f, 1.0f)] public float social  = 1.0f;
 
+    [Header("Stats")]
     [SerializeField] float hungerFallRate = 0.0f;
     [SerializeField] float energyFallRate = 0.0f;
+    [SerializeField] float socialFallRate = 0.0f;
 
     [HideInInspector] public NPCMovementScript movementScript;
     
@@ -45,6 +59,7 @@ public class BehaviourDecisionSystem : MonoBehaviour
 
         updateStatValues();
         BehaviorSnippet currentSnippet = evalTree.FindCurrentAction();
+        evalTree.UpdateTree();
 
         if (currentSnippet != null)
         {
@@ -60,12 +75,14 @@ public class BehaviourDecisionSystem : MonoBehaviour
         {
             hunger -= hungerFallRate * 0.0001f;
             energy -= energyFallRate * 0.0001f;
+            social -= socialFallRate * 0.0001f;
         }
 
 
         //update sliders
-        hungerSlider.value = hunger;
-        energySlider.value = energy;
+        hungerSlider.fillAmount = hunger;
+        energySlider.fillAmount = energy;
+        socialSlider.fillAmount = energy;
     }
     public void CheckForNewActionConditions()
     {

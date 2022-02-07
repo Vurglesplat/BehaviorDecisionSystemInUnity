@@ -38,7 +38,7 @@ public class EvaluationTree
                 currentHighest = current;
             }
 
-            if (current.typeOfAction > currentHighest.typeOfAction)
+            if (current.actionValue > currentHighest.actionValue)
             {
                 //  TODO
                 Debug.LogWarning("Evaluating based off of type, not value");
