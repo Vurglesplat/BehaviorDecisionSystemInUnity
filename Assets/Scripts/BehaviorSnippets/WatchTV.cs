@@ -15,7 +15,7 @@ public class WatchTV : BehaviorSnippet
     {
         target = charStats.TV;
 
-        if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 0.1f)
+        if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 1.5f)
         {
             currentActionName = "Watching TV";
         }
@@ -26,6 +26,7 @@ public class WatchTV : BehaviorSnippet
             {
                 currentActionName = "Turning the TV on";
                 target.GetComponent<TVScript>().screen.SetActive(true);
+                target = null;
             }
         }
         else

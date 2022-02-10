@@ -11,7 +11,7 @@ public enum UtilityType
 
     MAKE_BREAD,
     GET_BREAD,
-    EXHAUSTED,
+    GETTING_SLEEP,
 
     TOTAL_UTILITY_VALUES
 };

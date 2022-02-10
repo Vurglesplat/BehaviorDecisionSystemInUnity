@@ -12,9 +12,11 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] Image energySlider;
     [SerializeField] Image socialSlider;
 
-    [Header("States")]
-    public bool isAsleep = true;
+    [Header("Conditions")]
+    public bool canSleep = false;
 
+    [Space]
+    [Header("Rates")]
     [Range(0.0f, 1.0f)] public float hunger = 1.0f;
     [Range(0.0f, 1.0f)] public float energy = 1.0f;
     [Range(0.0f, 1.0f)] public float social = 1.0f;

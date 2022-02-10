@@ -27,11 +27,12 @@ public override void BehaviourUpdate()
             {
                 currentActionName = "Bringing Wheat To Oven";
                 target = charStats.Oven;
-                if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 1.0f)
+                if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 2.0f)
                 {
                     currentActionName = "Baking Bread";
                     charStats.gameObject.GetComponent<HeldWheatScript>().heldWheat.SetActive(false);
                     target.GetComponent<OvenScript>().StartCooking();
+                    target = null;
                 }
             }
             else
@@ -39,16 +40,13 @@ public override void BehaviourUpdate()
                 Debug.Log("looking for wheat");
                 //currentActionName = "Looking For Wheat";
 
-
                 target = GameObject.FindGameObjectWithTag("WheatField");
                 if (target == null)
                     Debug.LogError("NO WHEATFIELDS FOUND");
                 else
                     currentActionName = "Heading To Wheat";
 
-
-
-                if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 0.5f)
+                if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 2.0f)
                 {
 
                     Debug.Log("got wheat");

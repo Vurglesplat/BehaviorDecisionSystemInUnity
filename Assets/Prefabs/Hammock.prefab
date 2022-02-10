@@ -371,6 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5672194044926789983}
   - component: {fileID: 5672194044926789982}
+  - component: {fileID: 2425562209305560188}
   m_Layer: 0
   m_Name: Hammock
   m_TagString: Untagged
@@ -421,6 +422,18 @@ PolygonCollider2D:
     - - {x: -1.0368743, y: -0.026936173}
       - {x: -1.4970303, y: 0.28595996}
       - {x: -0.65343094, y: 0.3013121}
+--- !u!114 &2425562209305560188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5672194044926789976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bee0a3cc680f884ea6f1aba4b463b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5672194044978555183
 GameObject:
   m_ObjectHideFlags: 0

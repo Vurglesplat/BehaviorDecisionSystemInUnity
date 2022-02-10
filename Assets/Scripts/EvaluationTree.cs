@@ -27,9 +27,10 @@ public class EvaluationTree
     {
         // TODO: Add the base actions here
         // food
-        AddNewSnippet((new HandleHunger(this)));
+        AddNewSnippet(new HandleHunger(this));
 
         // sleep
+        AddNewSnippet(new HandleSleep(this));
 
         // social
 
