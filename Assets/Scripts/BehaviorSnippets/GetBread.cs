@@ -5,22 +5,30 @@ using UnityEngine;
 
 public class GetBread : BehaviorSnippet
 {
-    public BehaviourDecisionSystem bDS;
 
-    public override void updateBehavior(GameObject character)
+    public GetBread(EvaluationTree parentEvalTree) : base(parentEvalTree)
     {
-        if(!target)
+        actionValue = 80;
+        typeOfAction = UtilityType.GET_BREAD;
+        name = "Getting Food";  
+        currentActionName = "Heading to Bread";        
+    }
+
+    public override void BehaviourUpdate()
+    {
+        target = GameObject.FindGameObjectWithTag("Bread");
+        if (!target)
         {
             Debug.Log("Bread Missing!");
-            bDS.ClearHungerConditions();
+            evalTree.RemoveAllRelatedToHunger();
         }
         else
         {
-            if ((Vector2.Distance(target.transform.position, character.transform.position) < 0.5f))
+            if ((Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 0.5f))
             {
                 Debug.Log("Eating the bread");
                 GameObject.Destroy(target);
-                character.GetComponent<BehaviourDecisionSystem>().hunger = 1.0f;
+                charStats.hunger = 1.0f;
             }
             else
             {
@@ -30,11 +38,11 @@ public class GetBread : BehaviorSnippet
 
 
     }
-
-    public GetBread(GameObject bread, BehaviourDecisionSystem newBDS)
+    public override void SnippetUpdate()
     {
-        target = bread;
-        typeOfAction = UtilityType.GET_BREAD;
-        bDS = newBDS;
+        if (GameObject.FindGameObjectWithTag("Bread"))
+            actionValue = ((1.0f - charStats.hunger) * 100) + 20;
+        else
+            actionValue = (1.0f - charStats.hunger) * 100 - 10;
     }
 }

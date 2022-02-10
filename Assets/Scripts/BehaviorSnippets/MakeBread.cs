@@ -4,41 +4,56 @@ using UnityEngine;
 
 public class MakeBread : BehaviorSnippet
 {
-    GameObject targetOven, targetWheatField;
-    public override void updateBehavior(GameObject character)
+    public MakeBread(EvaluationTree parentEvalTree) : base(parentEvalTree)
+    {
+        actionValue = 70;
+        typeOfAction = UtilityType.MAKE_BREAD;
+        name = "Making Bread";
+        currentActionName = "Making Bread";
+    }
+
+public override void BehaviourUpdate()
     {
         Debug.Log("making bread");
 
-        if (targetOven.GetComponent<OvenScript>().isCooking)
+        if (charStats.Oven.GetComponent<OvenScript>().isCooking)
         {
-            target = targetOven;
+            target = charStats.Oven;
             Debug.Log("Waiting for it to finish baking");
         }
         else
         {
-            if (character.GetComponent<HeldWheatScript>().heldWheat.activeSelf)
+            if (charStats.gameObject.GetComponent<HeldWheatScript>().heldWheat.activeSelf)
             {
-                Debug.Log("have wheat, going to the oven");
-                target = targetOven;
-                if (Vector2.Distance(target.transform.position, character.transform.position) < 1.0f)
+                currentActionName = "Bringing Wheat To Oven";
+                target = charStats.Oven;
+                if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 1.0f)
                 {
-                    Debug.Log("Beginning to bake");
-                    character.GetComponent<HeldWheatScript>().heldWheat.SetActive(false);
-                    target.GetComponent<OvenScript>().startCooking();
+                    currentActionName = "Baking Bread";
+                    charStats.gameObject.GetComponent<HeldWheatScript>().heldWheat.SetActive(false);
+                    target.GetComponent<OvenScript>().StartCooking();
                 }
             }
             else
             {
                 Debug.Log("looking for wheat");
+                //currentActionName = "Looking For Wheat";
+
 
                 target = GameObject.FindGameObjectWithTag("WheatField");
                 if (target == null)
                     Debug.LogError("NO WHEATFIELDS FOUND");
+                else
+                    currentActionName = "Heading To Wheat";
 
-                if (Vector2.Distance(target.transform.position, character.transform.position) < 0.5f)
+
+
+                if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 0.5f)
                 {
+
                     Debug.Log("got wheat");
-                    character.GetComponent<HeldWheatScript>().heldWheat.SetActive(true);
+                    //currentActionName = "Grabbing Wheat";
+                    charStats.gameObject.GetComponent<HeldWheatScript>().heldWheat.SetActive(true);
                 }
 
             }
@@ -46,10 +61,11 @@ public class MakeBread : BehaviorSnippet
 
     }
 
-    public MakeBread(GameObject oven, GameObject wheatField)
+    public override void SnippetUpdate()
     {
-        targetOven = oven;
-        targetWheatField = wheatField;
-        typeOfAction = UtilityType.MAKE_BREAD;
+        if (GameObject.FindGameObjectWithTag("Bread"))
+            actionValue = ((1.0f - charStats.hunger) * 100) - 20;
+        else
+            actionValue = ((1.0f - charStats.hunger) * 100) + 10;
     }
 }

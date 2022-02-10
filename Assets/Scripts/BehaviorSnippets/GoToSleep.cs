@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class GoToSleep : BehaviorSnippet
 {
-    public override void updateBehavior(GameObject character)
+    public GoToSleep(EvaluationTree parentEvalTree) : base(parentEvalTree)
+    { }
+
+public override void BehaviourUpdate()
     {
 
-        if (Vector2.Distance(target.transform.position, character.transform.position) < 0.1f)
+        if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 0.1f)
         {
             Debug.Log("Watching TV");
         }
 
-        if (Vector2.Distance(target.transform.position, character.transform.position) < 2.0f)
+        if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 2.0f)
         {
             if (!target.GetComponent<TVScript>().screen.activeSelf)
             {
@@ -26,9 +29,9 @@ public class GoToSleep : BehaviorSnippet
         }
     }
 
-    public GoToSleep(GameObject bed)
-    {
-        target = bed;
-        typeOfAction = (int)UtilityType.WATCHING_TV;
-    }
+    //public GoToSleep(GameObject bed)
+    //{
+    //    target = bed;
+    //    typeOfAction = (int)UtilityType.WATCHING_TV;
+    //}
 }

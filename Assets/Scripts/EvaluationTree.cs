@@ -5,27 +5,36 @@ using UnityEngine;
 [System.Serializable]
 
 /// <summary>
-/// Deciding which action that is available is acted upon. This should work relative to each action's context.
+/// Deciding what each action does, and what it's value is. This should work relative to each action's context.
 /// </summary>
 public class EvaluationTree
 {
-    [HideInInspector] public BehaviourDecisionSystem behaveSys;
+    [HideInInspector] public BehaviourDecisionSystem bds;
 
     
-    public List<BehaviorSnippet> availableActions = new List<BehaviorSnippet>();
+    List<BehaviorSnippet> availableActions = new List<BehaviorSnippet>();
     //private void Method<BehaviorSnippet>(List<BehaviourSnippet> foos)
-    public bool[] currActionsShortlist = new bool[(int)UtilityType.TOTAL_UTILITY_VALUES];
 
-
-    public void setup(GameObject TV)
+    public void AddNewSnippet(BehaviorSnippet newSnippet)
     {
-        for (int i = 0; i < (int)UtilityType.TOTAL_UTILITY_VALUES; i++)
+        if(!ContainsType(newSnippet.name))
         {
-            currActionsShortlist[i] = false;
+            availableActions.Add(newSnippet);
         }
+    }
 
-        currActionsShortlist[(int)UtilityType.WATCHING_TV] = true;
-        availableActions.Add(new WatchTV(TV));
+    public void SetupInitialSnippets()
+    {
+        // TODO: Add the base actions here
+        // food
+        AddNewSnippet((new HandleHunger(this)));
+
+        // sleep
+
+        // social
+
+        // tv
+        AddNewSnippet(new WatchTV(this));
     }
 
     public BehaviorSnippet FindCurrentAction()
@@ -40,8 +49,6 @@ public class EvaluationTree
 
             if (current.actionValue > currentHighest.actionValue)
             {
-                //  TODO
-                Debug.LogWarning("Evaluating based off of type, not value");
                 currentHighest = current;
             }
         }
@@ -51,7 +58,34 @@ public class EvaluationTree
 
     public void UpdateTree()
     {
+        foreach (BehaviorSnippet current in availableActions)
+        {
+            current.SnippetUpdate();
+        }
+    }
 
+    public bool ContainsType(string nameOfType)
+    {
+        foreach(BehaviorSnippet curAction in availableActions)
+        {
+            if (curAction.name == nameOfType)
+                return true;
+        }
+            return false;
+    }
+
+    public void RemoveAllRelatedToHunger()
+    {
+         availableActions.RemoveAll(IsHungerRelated);
+    }
+
+    static bool IsHungerRelated(BehaviorSnippet x)
+    {
+        if (x.typeOfAction == UtilityType.MAKE_BREAD || x.typeOfAction == UtilityType.GET_BREAD)
+            return true;
+        else
+            return false;
     }
 }
+
 

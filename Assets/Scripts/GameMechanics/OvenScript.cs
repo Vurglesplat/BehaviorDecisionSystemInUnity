@@ -39,23 +39,24 @@ public class OvenScript : MonoBehaviour
 
         if (timeLeft < 0.0f && isCooking == true)
         {
-            finishCooking();
+            FinishCooking();
         }
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            startCooking();
+            StartCooking();
         }
     }
 
-    public void startCooking()
+    public void StartCooking()
     {
         timeLeft = fullCookTime;
         isCooking = true;
     }
-    public void finishCooking()
+    public void FinishCooking()
     {
         isCooking = false;
-        Instantiate(breadPrefab);
+        Vector3 offset = this.transform.position + new Vector3(0.7f,-0.4f,0);
+        Instantiate(breadPrefab, offset, Quaternion.identity);
     }
 }
