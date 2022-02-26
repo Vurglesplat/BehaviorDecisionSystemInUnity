@@ -12,7 +12,7 @@ public class MakeBread : BehaviorSnippet
         currentActionName = "Making Bread";
     }
 
-public override void BehaviourUpdate()
+public override void BehaviorUpdate()
     {
         Debug.Log("making bread");
 

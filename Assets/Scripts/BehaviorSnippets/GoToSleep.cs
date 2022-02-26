@@ -7,7 +7,7 @@ public class GoToSleep : BehaviorSnippet
     public GoToSleep(EvaluationTree parentEvalTree) : base(parentEvalTree)
     { }
 
-public override void BehaviourUpdate()
+public override void BehaviorUpdate()
     {
 
         if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 0.1f)

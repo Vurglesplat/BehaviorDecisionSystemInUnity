@@ -11,7 +11,7 @@ public class WatchTV : BehaviorSnippet
         name = "Bored, want to watch TV";
     }
 
-    public override void BehaviourUpdate()
+    public override void BehaviorUpdate()
     {
         target = charStats.TV;
 

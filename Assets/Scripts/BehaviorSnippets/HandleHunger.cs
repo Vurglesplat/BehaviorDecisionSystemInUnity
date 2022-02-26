@@ -13,7 +13,7 @@ public class HandleHunger : BehaviorSnippet
         currentActionName = "Hungry, thinking about food";
     }
 
-    public override void BehaviourUpdate()
+    public override void BehaviorUpdate()
     {
         if (charStats.hunger < 0.7f)
         {

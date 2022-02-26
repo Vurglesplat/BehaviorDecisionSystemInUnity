@@ -12,7 +12,7 @@ public class HandleSleep : BehaviorSnippet
         currentActionName = "Thinking About Sleep";
     }
 
-    public override void BehaviourUpdate()
+    public override void BehaviorUpdate()
     {
         target = charStats.Hammock;
         if (!target)

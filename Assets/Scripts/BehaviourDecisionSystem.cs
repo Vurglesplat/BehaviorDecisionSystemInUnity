@@ -51,7 +51,7 @@ public class BehaviourDecisionSystem : MonoBehaviour
 
         if (currentSnippet != null)
         {
-            currentSnippet.BehaviourUpdate();
+            currentSnippet.BehaviorUpdate();
             movementScript.targetObj = currentSnippet.target;
             currentActionHeader.text = currentSnippet.currentActionName;
             currentGoalHeader.text = currentSnippet.name;

@@ -37,7 +37,7 @@ public class BehaviorSnippet
     /// <summary>
     ///  What this snippet does with control granted to it
     /// </summary>
-    public virtual void BehaviorUpdate() 
+    public virtual void BehaviourUpdate() 
     {
         Debug.LogError("WARNING, DEFAULT BEHAVIOUR UPDATE");
     }
@@ -60,3 +60,9 @@ public class BehaviorSnippet
 
 }
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 30c65c0a43224b91457cf072a211d5c58cf4ed6c

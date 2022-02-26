@@ -14,7 +14,7 @@ public class GetBread : BehaviorSnippet
         currentActionName = "Heading to Bread";        
     }
 
-    public override void BehaviourUpdate()
+    public override void BehaviorUpdate()
     {
         target = GameObject.FindGameObjectWithTag("Bread");
         if (!target)
