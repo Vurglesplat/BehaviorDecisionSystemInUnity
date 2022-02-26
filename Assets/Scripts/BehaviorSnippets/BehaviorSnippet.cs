@@ -61,21 +61,5 @@ public class BehaviorSnippet
 }
 
 
-//public class WastingElectricity : BehaviorSnippet
-//{
-
-//    public override void updateBehavior(GameObject character)
-//    {
-//        if (Vector2.Distance(target.transform.position, character.transform.position) < 2.0f)
-//            target.GetComponent<TVScript>().screen.SetActive(true);
-//    }
-
-//    public WastingElectricity(GameObject tv)
-//    {
-//        target = tv;
-//        utilityValue = (int)UtilityValues.WASTING_ELECTRICITY;
-//    }
-//}
-
 
 
