@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoToSleep : BehaviorSnippet
+public class BSnip_GoToSleep : BehaviorSnippet
 {
-    public GoToSleep(EvaluationTree parentEvalTree) : base(parentEvalTree)
+    public BSnip_GoToSleep(EvaluationTree parentEvalTree) : base(parentEvalTree)
     { }
 
 public override void BehaviorUpdate()
@@ -29,7 +29,7 @@ public override void BehaviorUpdate()
         }
     }
 
-    //public GoToSleep(GameObject bed)
+    //public BSnip_GoToSleep(GameObject bed)
     //{
     //    target = bed;
     //    typeOfAction = (int)UtilityType.WATCHING_TV;

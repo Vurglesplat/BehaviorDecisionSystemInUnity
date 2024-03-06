@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MakeBread : BehaviorSnippet
+public class BSnip_MakeBread : BehaviorSnippet
 {
-    public MakeBread(EvaluationTree parentEvalTree) : base(parentEvalTree)
+    public BSnip_MakeBread(EvaluationTree parentEvalTree) : base(parentEvalTree)
     {
         actionValue = 70;
         typeOfAction = UtilityType.MAKE_BREAD;

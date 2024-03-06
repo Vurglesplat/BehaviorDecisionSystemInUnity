@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GetBread : BehaviorSnippet
+public class BSnip_GetBread : BehaviorSnippet
 {
 
-    public GetBread(EvaluationTree parentEvalTree) : base(parentEvalTree)
+    public BSnip_GetBread(EvaluationTree parentEvalTree) : base(parentEvalTree)
     {
         actionValue = 80;
         typeOfAction = UtilityType.GET_BREAD;

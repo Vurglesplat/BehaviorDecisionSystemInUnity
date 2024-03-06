@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandleHunger : BehaviorSnippet
+public class BSnip_HandleHunger : BehaviorSnippet
 {
     bool isDoingSomethingAboutHunger = false;
 
-    public HandleHunger(EvaluationTree parentEvalTree) : base(parentEvalTree) 
+    public BSnip_HandleHunger(EvaluationTree parentEvalTree) : base(parentEvalTree) 
     {
         actionValue = 10;
         name = "Handling Hunger";
@@ -21,12 +21,12 @@ public class HandleHunger : BehaviorSnippet
             if (GameObject.FindGameObjectWithTag("Bread"))
             {
                 Debug.Log("Got Bread, will try to eat.");
-                evalTree.AddNewSnippet(new GetBread(evalTree));
+                evalTree.AddNewSnippet(new BSnip_GetBread(evalTree));
             }
             else
             {
                 Debug.Log("No bread found, I'll make some");
-                evalTree.AddNewSnippet(new MakeBread(evalTree));
+                evalTree.AddNewSnippet(new BSnip_MakeBread(evalTree));
             }
         }
         else

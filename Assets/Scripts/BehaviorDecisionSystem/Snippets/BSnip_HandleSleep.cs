@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandleSleep : BehaviorSnippet
+public class BSnip_HandleSleep : BehaviorSnippet
 {
-
-    public HandleSleep(EvaluationTree parentEvalTree) : base(parentEvalTree)
+    public BSnip_HandleSleep(EvaluationTree parentEvalTree) : base(parentEvalTree)
     {
         typeOfAction = UtilityType.GETTING_SLEEP;
         name = "Trying To Get Sleep";

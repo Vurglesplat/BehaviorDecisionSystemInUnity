@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WatchTV : BehaviorSnippet
+public class BSnip_WatchTV : BehaviorSnippet
 {
 
-    public WatchTV(EvaluationTree parentEvalTree) : base(parentEvalTree)
+    public BSnip_WatchTV(EvaluationTree parentEvalTree) : base(parentEvalTree)
     {
         actionValue = 40;
         name = "Bored, want to watch TV";

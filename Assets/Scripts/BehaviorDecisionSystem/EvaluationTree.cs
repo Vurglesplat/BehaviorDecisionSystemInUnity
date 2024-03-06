@@ -11,7 +11,6 @@ public class EvaluationTree
 {
     [HideInInspector] public BehaviorDecisionSystem bds;
 
-    
     List<BehaviorSnippet> availableActions = new List<BehaviorSnippet>();
     //private void Method<BehaviorSnippet>(List<BehaviourSnippet> foos)
 
@@ -27,34 +26,50 @@ public class EvaluationTree
     {
         // TODO: Add the base actions here
         // food
-        AddNewSnippet(new HandleHunger(this));
+        AddNewSnippet(new BSnip_HandleHunger(this));
 
         // sleep
-        AddNewSnippet(new HandleSleep(this));
+        AddNewSnippet(new BSnip_HandleSleep(this));
 
         // social
 
         // tv
-        AddNewSnippet(new WatchTV(this));
+        AddNewSnippet(new BSnip_WatchTV(this));
     }
 
-    public BehaviorSnippet FindCurrentAction()
+    public BehaviorSnippet DetermineCurrentAction()
     {
-        BehaviorSnippet currentHighest = null;
-        foreach(BehaviorSnippet current in availableActions)
+        if (availableActions == null || availableActions.Count < 1)
         {
-            if (currentHighest == null)
-            {
-                currentHighest = current;
-            }
+            Debug.LogError("There were no valid availableActions available to the evaluation tree on: " + bds.gameObject.name);
+            return null;
+        }
 
-            if (current.actionValue > currentHighest.actionValue)
+        List<BehaviorSnippet> currentHighestActions = new List<BehaviorSnippet>();
+
+        foreach(BehaviorSnippet currentSnippet in availableActions)
+        {
+            //emplace value if it's the first, or if it's a better value
+            if (currentHighestActions.Count < 0 || currentSnippet.actionValue > currentHighestActions[0].actionValue)
             {
-                currentHighest = current;
+                currentHighestActions.Clear();
+                currentHighestActions.Add(currentSnippet);
+            }
+            else if (currentSnippet.actionValue == currentHighestActions[0].actionValue)
+            {
+                currentHighestActions.Add(currentSnippet);
             }
         }
 
-        return currentHighest;
+        if (currentHighestActions.Count == 1)
+        {
+            return currentHighestActions[0];
+        }
+        else 
+        {
+            Debug.LogWarning("Had " + currentHighestActions.Count + " snippets tie for highest action value on " + bds.gameObject + ", this is not necessarily a problem, but may indicate an error if happening very frequently.");
+            return currentHighestActions[Random.Range(0, currentHighestActions.Count)];
+        }
     }
 
     public void UpdateTree()
