@@ -36,7 +36,7 @@ public class CharacterStats : MonoBehaviour
 
 
     bool isAwake = true;
-    [HideInInspector] public BehaviourDecisionSystem bds;
+    [HideInInspector] public BehaviorDecisionSystem bds;
 
     private void Update()
     {
@@ -67,6 +67,4 @@ public class CharacterStats : MonoBehaviour
         energySlider.fillAmount = energy;
         socialSlider.fillAmount = energy;
     }
-
-
 }

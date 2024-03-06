@@ -8,13 +8,13 @@ public class NPCMovementScript : MonoBehaviour
     [HideInInspector] public Vector2 targetDifference;
     [SerializeField] float moveSpeed;
     Rigidbody2D rb;
-    BehaviourDecisionSystem decisionSystem;
+    BehaviorDecisionSystem decisionSystem;
     PersonalSpace pSpace;
     // Start is called before the first frame update
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
-        decisionSystem = this.gameObject.GetComponent<BehaviourDecisionSystem>();
+        decisionSystem = this.gameObject.GetComponent<BehaviorDecisionSystem>();
         pSpace = this.gameObject.GetComponentInChildren<PersonalSpace>();
     }
 
