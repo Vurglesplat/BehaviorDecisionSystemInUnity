@@ -50,7 +50,7 @@ public class EvaluationTree
         foreach(BehaviorSnippet currentSnippet in availableActions)
         {
             //emplace value if it's the first, or if it's a better value
-            if (currentHighestActions.Count < 0 || currentSnippet.actionValue > currentHighestActions[0].actionValue)
+            if (currentHighestActions.Count < 1 || currentSnippet.actionValue > currentHighestActions[0].actionValue)
             {
                 currentHighestActions.Clear();
                 currentHighestActions.Add(currentSnippet);
