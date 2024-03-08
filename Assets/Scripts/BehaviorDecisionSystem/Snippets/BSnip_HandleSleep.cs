@@ -13,7 +13,8 @@ public class BSnip_HandleSleep : BehaviorSnippet
 
     public override void BehaviorUpdate()
     {
-        target = charStats.Hammock;
+        ChangeCurrentMovementTarget(charStats.Hammock);
+
         if (!target)
         {
             Debug.Log("NO BED");
@@ -23,11 +24,12 @@ public class BSnip_HandleSleep : BehaviorSnippet
             if ((Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 0.1f))
             {
                 Debug.Log("IN BED");
-                currentActionName = "Sleeping";
+                
+                ChangeCurrentAction("Sleeping");
             }
             else
             {
-                currentActionName = "Heading To Hammock";
+                ChangeCurrentAction("Heading To Hammock");
             }
         }
 

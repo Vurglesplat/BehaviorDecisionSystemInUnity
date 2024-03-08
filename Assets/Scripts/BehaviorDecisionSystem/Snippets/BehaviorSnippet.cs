@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public enum UtilityType
 {
     UNASSIGNED = -1,
@@ -16,8 +15,7 @@ public enum UtilityType
     TOTAL_UTILITY_VALUES
 };
 
-
-public class BehaviorSnippet
+public abstract class BehaviorSnippet
 {
     const string DEFAULT_NAME = "DEFAULT_BEHAVIOR_NAME";
     const string DEFAULT_ACTION = "DEFAULT_ACTION";
@@ -58,5 +56,16 @@ public class BehaviorSnippet
         charStats = bDS.charStats;
     }
 
+    public void ChangeCurrentAction(string newActionText)
+    {
+        currentActionName = newActionText;
+        bDS.onActionChanged(this);
+    }
+
+    public void ChangeCurrentMovementTarget(GameObject newtarget)
+    {
+        target = newtarget;
+        bDS.movementScript.targetObj = newtarget;
+    }
 }
 

@@ -19,7 +19,7 @@ public class BSnip_GetBread : BehaviorSnippet
         target = GameObject.FindGameObjectWithTag("Bread");
         if (!target)
         {
-            Debug.Log("Bread Missing!");
+            Debug.Log("No Bread to eat!");
             evalTree.RemoveAllRelatedToHunger();
         }
         else
@@ -28,11 +28,13 @@ public class BSnip_GetBread : BehaviorSnippet
             {
                 Debug.Log("Eating the bread");
                 GameObject.Destroy(target);
+                ChangeCurrentMovementTarget(null);
                 charStats.hunger = 1.0f;
             }
             else
             {
                 Debug.Log("going to the bread");
+                ChangeCurrentMovementTarget(target);
             }
         }
 

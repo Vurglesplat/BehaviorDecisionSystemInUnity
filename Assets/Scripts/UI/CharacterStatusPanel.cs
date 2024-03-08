@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 
 public class CharacterStatusPanel : MonoBehaviour
 {
-    
     [SerializeField] public TextMeshProUGUI currentActionHeader;
     [SerializeField] public TextMeshProUGUI currentGoalHeader;
 
@@ -19,5 +19,16 @@ public class CharacterStatusPanel : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UpdateDisplayForNewSnippet(BehaviorSnippet newBehavior)
+    {
+        currentActionHeader.text = newBehavior.currentActionName;
+        currentGoalHeader.text = newBehavior.name;
+    }
+
+    public void UpdateDisplayForNewAction(BehaviorSnippet newBehavior)
+    {
+        currentActionHeader.text = newBehavior.currentActionName;
     }
 }

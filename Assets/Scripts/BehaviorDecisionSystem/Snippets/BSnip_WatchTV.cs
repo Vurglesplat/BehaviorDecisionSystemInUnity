@@ -13,25 +13,25 @@ public class BSnip_WatchTV : BehaviorSnippet
 
     public override void BehaviorUpdate()
     {
-        target = charStats.TV;
+        ChangeCurrentMovementTarget(charStats.TV);
 
         if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 1.5f)
         {
-            currentActionName = "Watching TV";
+            ChangeCurrentAction("Watching TV");
         }
 
         if (Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 2.0f)
         {
             if (!target.GetComponent<TVScript>().screen.activeSelf)
             {
-                currentActionName = "Turning the TV on";
+                ChangeCurrentAction("Turning the TV on");
                 target.GetComponent<TVScript>().screen.SetActive(true);
-                target = null;
+                ChangeCurrentMovementTarget(null);
             }
         }
         else
         {
-            currentActionName = "Heading to the TV";
+            ChangeCurrentAction("Heading to the TV");
         }
     }
 

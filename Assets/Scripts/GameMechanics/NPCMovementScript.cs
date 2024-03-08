@@ -21,43 +21,46 @@ public class NPCMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (targetObj)
+        if (!targetObj)
         {
-            targetDifference = (targetObj.transform.position - this.transform.position);
-            if (targetDifference.magnitude > 0.1)
+            return;
+        }
+
+        targetDifference = (targetObj.transform.position - this.transform.position);
+
+        if (targetDifference.magnitude > 0.1)
+        {
+            targetDifference.Normalize();
+            rb.velocity = targetDifference * moveSpeed;
+
+            if (pSpace.otherNPCsInRange.Count > 0)
             {
-                targetDifference.Normalize();
-                rb.velocity = targetDifference * moveSpeed;
-
-                if (pSpace.otherNPCsInRange.Count > 0)
+                Debug.Log("1");
+                Vector3 distanceVec = new Vector3(0, 0, 0);
+                foreach (GameObject NPC in pSpace.otherNPCsInRange)
                 {
-                    Debug.Log("1");
-                    Vector3 distanceVec = new Vector3(0,0,0);
-                    foreach (GameObject NPC in pSpace.otherNPCsInRange)
-                    {
-                        distanceVec += (this.gameObject.transform.position - NPC.transform.position);
+                    distanceVec += (this.gameObject.transform.position - NPC.transform.position);
                     Debug.Log("2");
-                    }
+                }
 
-                    if (distanceVec != new Vector3(0,0,0))
-                    {
+                if (distanceVec != new Vector3(0, 0, 0))
+                {
                     Debug.Log("3");
-                        // the radius of the personal space is 1.5
-                        float weightingForDistanceVec = (1.5f - (distanceVec.magnitude / pSpace.otherNPCsInRange.Count));
+                    // the radius of the personal space is 1.5
+                    float weightingForDistanceVec = (1.5f - (distanceVec.magnitude / pSpace.otherNPCsInRange.Count));
 
-                        // no reason for 0.1f, I just wanted it to be a small influence
-                        Vector3 finalDistancingVec = Vector3.Lerp(distanceVec.normalized, (Quaternion.Euler(0, 0, -45f)) * new Vector3(rb.velocity.x, rb.velocity.y, 0), 0.4f);
-                        
-                        rb.velocity = Vector3.Lerp(rb.velocity, finalDistancingVec, weightingForDistanceVec);
-                    }
+                    // no reason for 0.1f, I just wanted it to be a small influence
+                    Vector3 finalDistancingVec = Vector3.Lerp(distanceVec.normalized, (Quaternion.Euler(0, 0, -45f)) * new Vector3(rb.velocity.x, rb.velocity.y, 0), 0.4f);
+
+                    rb.velocity = Vector3.Lerp(rb.velocity, finalDistancingVec, weightingForDistanceVec);
                 }
             }
-            else
-            {
-                rb.velocity = new Vector2(0.0f, 0.0f);
-            }
-            
-
         }
+        else
+        {
+            rb.velocity = new Vector2(0.0f, 0.0f);
+        }
+
+
     }
 }
