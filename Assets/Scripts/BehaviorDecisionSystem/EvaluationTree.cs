@@ -87,7 +87,8 @@ public class EvaluationTree
             if (curAction.name == nameOfType)
                 return true;
         }
-            return false;
+           
+        return false;
     }
 
     public void RemoveAllRelatedToHunger()
@@ -95,12 +96,9 @@ public class EvaluationTree
          availableActions.RemoveAll(IsHungerRelated);
     }
 
-    static bool IsHungerRelated(BehaviorSnippet x)
+    static bool IsHungerRelated(BehaviorSnippet snippet)
     {
-        if (x.typeOfAction == UtilityType.MAKE_BREAD || x.typeOfAction == UtilityType.GET_BREAD)
-            return true;
-        else
-            return false;
+        return (snippet.typeOfAction == UtilityType.MAKE_BREAD || snippet.typeOfAction == UtilityType.GET_BREAD);
     }
 }
 

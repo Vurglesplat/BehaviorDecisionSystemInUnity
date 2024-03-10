@@ -9,7 +9,7 @@ public class HammockScript : MonoBehaviour
         CharacterStats charStats = other.gameObject.GetComponent<CharacterStats>();
         if(charStats)
         {
-            charStats.canSleep = true;
+            charStats.canCurrentlySleep = true;
         }
     }
 
@@ -18,7 +18,7 @@ public class HammockScript : MonoBehaviour
         CharacterStats charStats = other.gameObject.GetComponent<CharacterStats>();
         if (charStats)
         {
-            charStats.canSleep = false;
+            charStats.canCurrentlySleep = false;
         }
     }
 }

@@ -41,7 +41,7 @@ public abstract class BehaviorSnippet
     }
 
     /// <summary>
-    /// The snippets updating without any control being actually granted to them
+    /// What the snippet does when inactive, usually just determining it's new value
     /// </summary>
     /// <param name="stats"></param>
     public virtual void SnippetUpdate() 

@@ -1,19 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour
 {
     [Space]
     public string charName;
-    [Space]
-    [SerializeField] Image hungerSlider;
-    [SerializeField] Image energySlider;
-    [SerializeField] Image socialSlider;
 
     [Header("Conditions")]
-    public bool canSleep = false;
+    public bool canCurrentlySleep = false;
 
     [Space]
     [Header("Rates")]
@@ -25,6 +20,7 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] float hungerFallRate = 0.0f;
     [SerializeField] float energyFallRate = 0.0f;
     [SerializeField] float socialFallRate = 0.0f;
+    [SerializeField] float generalFallRateModifier = 0.0001f;  // this is used to keep the other numbers more readable
 
     [Header("Potential Targets")]
     public GameObject TV;
@@ -41,7 +37,7 @@ public class CharacterStats : MonoBehaviour
     private void Update()
     {
         UpdateStatValues();
-        UpdateStatVisuals();
+        bds.characterPanel.UpdateCharacterStats(this);
     }
 
     void UpdateStatValues()
@@ -49,22 +45,13 @@ public class CharacterStats : MonoBehaviour
         // decay values
         if (isAwake)
         {
-            hunger -= hungerFallRate * 0.0001f;
-            energy -= energyFallRate * 0.0001f;
-            social -= socialFallRate * 0.0001f;
+            hunger -= hungerFallRate * generalFallRateModifier;
+            energy -= energyFallRate * generalFallRateModifier;
+            social -= socialFallRate * generalFallRateModifier;
         }
         else
         {
-            Debug.LogWarning("should decay stats differently when asleep");  //  TODO
+            Debug.LogWarning("should decay stats differently when asleep?");  //  TODO
         }
-
-    }
-
-    void UpdateStatVisuals()
-    {
-        //update sliders
-        hungerSlider.fillAmount = hunger;
-        energySlider.fillAmount = energy;
-        socialSlider.fillAmount = energy;
     }
 }

@@ -1946,17 +1946,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &88897471 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6077467453657918851, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
-  m_PrefabInstance: {fileID: 6077467453570112060}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &88959064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,6 +2390,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &109584331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 109584332}
+  - component: {fileID: 109584333}
+  m_Layer: 0
+  m_Name: GameMode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &109584332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109584331}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8355285, y: -0.5664571, z: -0.3974587}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &109584333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109584331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af212ac5ee8a2240ae1851b0f45769e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &116483211
 GameObject:
   m_ObjectHideFlags: 0
@@ -19832,39 +19864,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6077467454636111476, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
   m_PrefabInstance: {fileID: 1109960442}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1109960444 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6077467455008216147, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
-  m_PrefabInstance: {fileID: 1109960442}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1109960445 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6077467455502187647, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
-  m_PrefabInstance: {fileID: 1109960442}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1109960446 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6077467453657918851, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
-  m_PrefabInstance: {fileID: 1109960442}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1109960447 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4508591698822605522, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
@@ -20271,16 +20270,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charName: Square
-  hungerSlider: {fileID: 1109960446}
-  energySlider: {fileID: 1109960445}
-  socialSlider: {fileID: 1109960444}
-  canSleep: 0
+  canCurrentlySleep: 0
   hunger: 1
   energy: 1
   social: 1
   hungerFallRate: 3
   energyFallRate: 1.5
   socialFallRate: 4
+  generalFallRateModifier: 0.0001
   TV: {fileID: 1552053269}
   Hammock: {fileID: 2002376396}
   Oven: {fileID: 285864610}
@@ -23150,7 +23147,7 @@ Transform:
   - {fileID: 1566109814}
   - {fileID: 1303812224}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1255323679
 GameObject:
@@ -24344,16 +24341,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charName: Triangle
-  hungerSlider: {fileID: 1320069047}
-  energySlider: {fileID: 1320069046}
-  socialSlider: {fileID: 1320069045}
-  canSleep: 0
+  canCurrentlySleep: 0
   hunger: 1
   energy: 1
   social: 1
   hungerFallRate: 4
   energyFallRate: 1.5
   socialFallRate: 2
+  generalFallRateModifier: 0.0001
   TV: {fileID: 1552053269}
   Hammock: {fileID: 1303812223}
   Oven: {fileID: 285864610}
@@ -24689,39 +24684,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6077467454636111476, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
   m_PrefabInstance: {fileID: 1320069043}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1320069045 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6077467455008216147, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
-  m_PrefabInstance: {fileID: 1320069043}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1320069046 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6077467455502187647, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
-  m_PrefabInstance: {fileID: 1320069043}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1320069047 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6077467453657918851, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
-  m_PrefabInstance: {fileID: 1320069043}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1320069048 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4508591698822605522, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
@@ -27053,17 +27015,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1439190639 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6077467455008216147, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
-  m_PrefabInstance: {fileID: 6077467453570112060}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1442718494
 GameObject:
   m_ObjectHideFlags: 0
@@ -30132,16 +30083,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charName: Circle
-  hungerSlider: {fileID: 88897471}
-  energySlider: {fileID: 1933518403}
-  socialSlider: {fileID: 1439190639}
-  canSleep: 0
+  canCurrentlySleep: 0
   hunger: 1
   energy: 1
   social: 1
   hungerFallRate: 2
   energyFallRate: 1
   socialFallRate: 2
+  generalFallRateModifier: 0.0001
   TV: {fileID: 1552053269}
   Hammock: {fileID: 661665516}
   Oven: {fileID: 285864610}
@@ -32233,7 +32182,7 @@ RectTransform:
   - {fileID: 1752443046}
   - {fileID: 94062841}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -34668,7 +34617,7 @@ Transform:
   - {fileID: 1552053270}
   - {fileID: 285864611}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1785633399
 GameObject:
@@ -37419,17 +37368,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1933518403 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6077467455502187647, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
-  m_PrefabInstance: {fileID: 6077467453570112060}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1941583987
 GameObject:
   m_ObjectHideFlags: 0
@@ -40720,7 +40658,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125358975
 GameObject:

@@ -1200,6 +1200,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentActionHeader: {fileID: 6077467454857996922}
   currentGoalHeader: {fileID: 6077467453899979923}
+  hungerSlider: {fileID: 6077467453657918851}
+  energySlider: {fileID: 6077467455502187647}
+  socialSlider: {fileID: 6077467455008216147}
 --- !u!1 &6077467454642956196
 GameObject:
   m_ObjectHideFlags: 0

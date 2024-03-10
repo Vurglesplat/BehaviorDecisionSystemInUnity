@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class NPCMovementScript : MonoBehaviour
 {
+    private const double k_stoppingDistance = 0.1;
+    private const float k_personalSpaceRadius = 1.5f;
+
     public GameObject targetObj = null;
     [HideInInspector] public Vector2 targetDifference;
     [SerializeField] float moveSpeed;
     Rigidbody2D rb;
     BehaviorDecisionSystem decisionSystem;
     PersonalSpace pSpace;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
@@ -18,7 +21,6 @@ public class NPCMovementScript : MonoBehaviour
         pSpace = this.gameObject.GetComponentInChildren<PersonalSpace>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!targetObj)
@@ -28,11 +30,12 @@ public class NPCMovementScript : MonoBehaviour
 
         targetDifference = (targetObj.transform.position - this.transform.position);
 
-        if (targetDifference.magnitude > 0.1)
+        if (targetDifference.magnitude > k_stoppingDistance)
         {
             targetDifference.Normalize();
             rb.velocity = targetDifference * moveSpeed;
 
+            // dodging other NPCs
             if (pSpace.otherNPCsInRange.Count > 0)
             {
                 Debug.Log("1");
@@ -47,7 +50,7 @@ public class NPCMovementScript : MonoBehaviour
                 {
                     Debug.Log("3");
                     // the radius of the personal space is 1.5
-                    float weightingForDistanceVec = (1.5f - (distanceVec.magnitude / pSpace.otherNPCsInRange.Count));
+                    float weightingForDistanceVec = k_personalSpaceRadius - (distanceVec.magnitude / pSpace.otherNPCsInRange.Count);
 
                     // no reason for 0.1f, I just wanted it to be a small influence
                     Vector3 finalDistancingVec = Vector3.Lerp(distanceVec.normalized, (Quaternion.Euler(0, 0, -45f)) * new Vector3(rb.velocity.x, rb.velocity.y, 0), 0.4f);
@@ -60,7 +63,5 @@ public class NPCMovementScript : MonoBehaviour
         {
             rb.velocity = new Vector2(0.0f, 0.0f);
         }
-
-
     }
 }

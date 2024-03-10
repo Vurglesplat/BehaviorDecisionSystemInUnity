@@ -12,7 +12,7 @@ public class BehaviorDecisionSystem : MonoBehaviour
     public delegate void OnBehaviorSnippetChanged(BehaviorSnippet newSnippet);
 
     [Space]
-    [SerializeField] CharacterStatusPanel characterPanel;
+    public CharacterStatusPanel characterPanel;
     [Space]
     [SerializeField] EvaluationTree evalTree = new EvaluationTree(); 
     [Space] [Space]
