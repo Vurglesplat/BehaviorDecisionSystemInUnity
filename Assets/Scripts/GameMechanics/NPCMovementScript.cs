@@ -33,7 +33,7 @@ public class NPCMovementScript : MonoBehaviour
         if (targetDifference.magnitude > k_stoppingDistance)
         {
             targetDifference.Normalize();
-            rb.velocity = targetDifference * moveSpeed;
+            rb.velocity = targetDifference * moveSpeed * Time.timeScale ;
 
             // dodging other NPCs
             if (pSpace.otherNPCsInRange.Count > 0)
