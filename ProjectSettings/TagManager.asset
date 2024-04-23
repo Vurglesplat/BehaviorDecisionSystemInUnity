@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WheatField
   - Bread
+  - Character
   layers:
   - Default
   - TransparentFX

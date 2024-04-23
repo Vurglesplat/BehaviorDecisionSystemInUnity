@@ -38,17 +38,14 @@ public class NPCMovementScript : MonoBehaviour
             // dodging other NPCs
             if (pSpace.otherNPCsInRange.Count > 0)
             {
-                Debug.Log("1");
                 Vector3 distanceVec = new Vector3(0, 0, 0);
                 foreach (GameObject NPC in pSpace.otherNPCsInRange)
                 {
                     distanceVec += (this.gameObject.transform.position - NPC.transform.position);
-                    Debug.Log("2");
                 }
 
                 if (distanceVec != new Vector3(0, 0, 0))
                 {
-                    Debug.Log("3");
                     // the radius of the personal space is 1.5
                     float weightingForDistanceVec = k_personalSpaceRadius - (distanceVec.magnitude / pSpace.otherNPCsInRange.Count);
 

@@ -45,9 +45,9 @@ public class CharacterStats : MonoBehaviour
         // decay values
         if (isAwake)
         {
-            hunger -= hungerFallRate * generalFallRateModifier;
-            energy -= energyFallRate * generalFallRateModifier;
-            social -= socialFallRate * generalFallRateModifier;
+            hunger -= hungerFallRate * generalFallRateModifier * (Time.deltaTime);
+            energy -= energyFallRate * generalFallRateModifier * (Time.deltaTime);
+            social -= socialFallRate * generalFallRateModifier * (Time.deltaTime);
         }
         else
         {
