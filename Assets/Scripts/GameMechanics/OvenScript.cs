@@ -26,7 +26,7 @@ public class OvenScript : MonoBehaviour
     {
         if(isCooking)
         {
-            timeLeft -= Time.deltaTime;
+            timeLeft -= Time.deltaTime * Time.timeScale;
 
             if (timeLeft < 0.0f)
             {

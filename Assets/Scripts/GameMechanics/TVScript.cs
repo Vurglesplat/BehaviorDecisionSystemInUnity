@@ -20,8 +20,10 @@ public class TVScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(screen.activeInHierarchy)
-            currentElectricBill += electricBillRate * Time.deltaTime;
+        if (screen.activeInHierarchy)
+        {
+            currentElectricBill += electricBillRate * Time.deltaTime * Time.timeScale;
+        }
         ElectricBill.text = "Electric Bill: " + currentElectricBill.ToString("c2"); //convert it to currency, $ included!
     }
 }
