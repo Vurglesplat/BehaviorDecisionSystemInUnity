@@ -34,8 +34,6 @@ public class BSnip_HandleSleep : BehaviorSnippet
                 ChangeCurrentAction("Heading To Hammock");
             }
         }
-
-
     }
 
     public override void SnippetUpdate()
