@@ -10,6 +10,8 @@ public class NPCMovementScript : MonoBehaviour
     public GameObject targetObj = null;
     [HideInInspector] public Vector2 targetDifference;
     [SerializeField] float moveSpeed;
+    [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     BehaviorDecisionSystem decisionSystem;
     PersonalSpace pSpace;
@@ -60,5 +62,8 @@ public class NPCMovementScript : MonoBehaviour
         {
             rb.velocity = new Vector2(0.0f, 0.0f);
         }
+
+        animator.SetFloat("CatMoveVelocity", rb.velocity.magnitude);
+        spriteRenderer.flipX = rb.velocity.x < 0.02;
     }
 }

@@ -29,7 +29,7 @@ public class BSnip_GetBread : BehaviorSnippet
                 Debug.Log("Eating the bread");
                 GameObject.Destroy(target);
                 ChangeCurrentMovementTarget(null);
-                charStats.hunger = 1.0f;
+                charStats.hunger += charStats.breadFillAmount;
             }
             else
             {

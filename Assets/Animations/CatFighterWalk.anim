@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CatIdle
+  m_Name: CatFighterWalk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -22,11 +22,9 @@ AnimationClip:
     - time: 0
       value: {fileID: 404203229911094984, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
     - time: 0.18333334
-      value: {fileID: -2836629245929924946, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
-    - time: 0.35
-      value: {fileID: 4968625104849424999, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
-    - time: 0.53333336
-      value: {fileID: 404203229911094984, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
+      value: {fileID: -3219679987570727162, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
+    - time: 0.36666667
+      value: {fileID: -7364461460612062082, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -47,15 +45,14 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 404203229911094984, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
-    - {fileID: -2836629245929924946, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
-    - {fileID: 4968625104849424999, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
-    - {fileID: 404203229911094984, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
+    - {fileID: -3219679987570727162, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
+    - {fileID: -7364461460612062082, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.55
+    m_StopTime: 0.38333336
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

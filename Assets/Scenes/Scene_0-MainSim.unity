@@ -867,7 +867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5672194044926789976, guid: 8c390a655240a6e41a586782b36b651a, type: 3}
       propertyPath: m_Name
-      value: TriangleHammock
+      value: GreenHammock
       objectReference: {fileID: 0}
     - target: {fileID: 5672194044926789983, guid: 8c390a655240a6e41a586782b36b651a, type: 3}
       propertyPath: m_RootOrder
@@ -4972,7 +4972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5672194044926789976, guid: 8c390a655240a6e41a586782b36b651a, type: 3}
       propertyPath: m_Name
-      value: CircleHammock
+      value: RedHammock
       objectReference: {fileID: 0}
     - target: {fileID: 5672194044926789983, guid: 8c390a655240a6e41a586782b36b651a, type: 3}
       propertyPath: m_RootOrder
@@ -8125,7 +8125,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 404203229911094984, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
-  m_Color: {r: 0.83921576, g: 0.18823531, b: 0.19215688, a: 1}
+  m_Color: {r: 0.9843138, g: 0.5019608, b: 0.4431373, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8159,7 +8159,7 @@ Animator:
   m_GameObject: {fileID: 460131324}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 64b33d74b44e6f64d8725a8a9bfc3464, type: 2}
+  m_Controller: {fileID: 9100000, guid: f4c3118a4fc7ed848adbfa05ce1a4363, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -9821,6 +9821,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &543514336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5672194044926789976, guid: 8c390a655240a6e41a586782b36b651a, type: 3}
+  m_PrefabInstance: {fileID: 48246009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &547673700
 GameObject:
   m_ObjectHideFlags: 0
@@ -12138,8 +12143,9 @@ GameObject:
   m_Component:
   - component: {fileID: 681623690}
   - component: {fileID: 681623691}
+  - component: {fileID: 681623692}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12154,7 +12160,7 @@ Transform:
   m_GameObject: {fileID: 681623689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 24}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 1125499647}
   m_RootOrder: 0
@@ -12200,8 +12206,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc897558d56f8c0449b405c97b73219a, type: 3}
-  m_Color: {r: 0.03529412, g: 0.5176471, b: 0.89019614, a: 1}
+  m_Sprite: {fileID: 404203229911094984, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
+  m_Color: {r: 0.054901965, g: 0.32156864, b: 0.7294118, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12211,6 +12217,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &681623692
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681623689}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4c3118a4fc7ed848adbfa05ce1a4363, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &689193712
 GameObject:
   m_ObjectHideFlags: 0
@@ -19978,7 +20003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454550037086, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_text
-      value: Square (Friendly)
+      value: Saph (Friendly)
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454636111476, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_Pivot.x
@@ -20082,7 +20107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454636111483, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_Name
-      value: SquareStatusPanel
+      value: BlueCatStatusPanel
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454642956197, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_AnchorMax.y
@@ -20411,7 +20436,7 @@ GameObject:
   - component: {fileID: 1125499648}
   - component: {fileID: 1125499652}
   m_Layer: 0
-  m_Name: NPSquareObject
+  m_Name: NPCatBlue
   m_TagString: Character
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -20507,6 +20532,8 @@ MonoBehaviour:
   targetObj: {fileID: 652373307}
   targetDifference: {x: 0, y: 0}
   moveSpeed: 3
+  animator: {fileID: 681623692}
+  spriteRenderer: {fileID: 681623691}
 --- !u!50 &1125499651
 Rigidbody2D:
   serializedVersion: 4
@@ -20540,7 +20567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240870117bb87f840b4f702c0b377eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: Square
+  charName: Saph
   canCurrentlySleep: 0
   hunger: 1
   energy: 1
@@ -23784,8 +23811,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1283656453}
   - component: {fileID: 1283656454}
+  - component: {fileID: 1283656455}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23800,7 +23828,7 @@ Transform:
   m_GameObject: {fileID: 1283656452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 22}
-  m_LocalScale: {x: 1.2999368, y: 1.2999368, z: 1.2999368}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 1303812224}
   m_RootOrder: 0
@@ -23846,8 +23874,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 820d98a2c68bc424db735d4f1889780a, type: 3}
-  m_Color: {r: 0, g: 0.72156864, b: 0.5803922, a: 1}
+  m_Sprite: {fileID: 404203229911094984, guid: ef0d63f891f47c0409604f02e6315884, type: 3}
+  m_Color: {r: 0.49803925, g: 1, b: 0.8313726, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -23857,6 +23885,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1283656455
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283656452}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4c3118a4fc7ed848adbfa05ce1a4363, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1284359603
 GameObject:
   m_ObjectHideFlags: 0
@@ -24034,7 +24081,7 @@ GameObject:
   - component: {fileID: 1285367691}
   - component: {fileID: 1285367693}
   m_Layer: 0
-  m_Name: CircleFollowCam
+  m_Name: RedFollowCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24480,7 +24527,7 @@ GameObject:
   - component: {fileID: 1303812227}
   - component: {fileID: 1303812230}
   m_Layer: 0
-  m_Name: NPTriangleObject
+  m_Name: NPCatGreen
   m_TagString: Character
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -24599,6 +24646,8 @@ MonoBehaviour:
   targetObj: {fileID: 652373307}
   targetDifference: {x: 0, y: 0}
   moveSpeed: 6
+  animator: {fileID: 1283656455}
+  spriteRenderer: {fileID: 1283656454}
 --- !u!114 &1303812230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24611,7 +24660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240870117bb87f840b4f702c0b377eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: Triangle
+  charName: Aqua
   canCurrentlySleep: 0
   hunger: 1
   energy: 1
@@ -24621,7 +24670,7 @@ MonoBehaviour:
   socialFallRate: 2
   generalFallRateModifier: 0.0002
   TV: {fileID: 1552053269}
-  Hammock: {fileID: 1303812223}
+  Hammock: {fileID: 543514336}
   Oven: {fileID: 285864610}
   WheatField: {fileID: 1941583987}
   Friend1: {fileID: 1125499645}
@@ -24790,7 +24839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454550037086, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_text
-      value: Triangle (Fast)
+      value: Aqua (Fast)
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454550037086, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_fontSize
@@ -24898,7 +24947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454636111483, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_Name
-      value: TriangleStatusPanel
+      value: GreenCatStatusPanel
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454642956197, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_AnchorMax.y
@@ -25744,7 +25793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1358565330
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30385,6 +30434,8 @@ MonoBehaviour:
   targetObj: {fileID: 652373307}
   targetDifference: {x: 0, y: 0}
   moveSpeed: 4
+  animator: {fileID: 460131327}
+  spriteRenderer: {fileID: 460131325}
 --- !u!50 &1566109816
 Rigidbody2D:
   serializedVersion: 4
@@ -30464,7 +30515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240870117bb87f840b4f702c0b377eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: Circle
+  charName: Sammy
   canCurrentlySleep: 0
   hunger: 1
   energy: 1
@@ -33507,7 +33558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1721643267
 Transform:
   m_ObjectHideFlags: 0
@@ -41824,7 +41875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5672194044926789976, guid: 8c390a655240a6e41a586782b36b651a, type: 3}
       propertyPath: m_Name
-      value: SquareHammock
+      value: BlueHammock
       objectReference: {fileID: 0}
     - target: {fileID: 5672194044926789983, guid: 8c390a655240a6e41a586782b36b651a, type: 3}
       propertyPath: m_RootOrder
@@ -41973,7 +42024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454550037086, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_text
-      value: Circle (Steady)
+      value: Sammy (Steady)
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454636111476, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_Pivot.x
@@ -42065,7 +42116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454636111483, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_Name
-      value: CircleStatusPanel
+      value: RedCatStatusPanel
       objectReference: {fileID: 0}
     - target: {fileID: 6077467454642956197, guid: 09a2f1e2090a34744a2645a5d8d1c9ba, type: 3}
       propertyPath: m_AnchorMax.y

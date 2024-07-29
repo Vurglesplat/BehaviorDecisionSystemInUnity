@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PersonalSpace : MonoBehaviour
 {
+
     public List<GameObject> otherNPCsInRange = new List<GameObject>();
     CharacterStats charStats;
 
@@ -26,5 +27,10 @@ public class PersonalSpace : MonoBehaviour
         {
             otherNPCsInRange.Remove(collision.gameObject);
         }
+    }
+
+    private void Update()
+    {
+        charStats.social += charStats.socialRestoreRate * (otherNPCsInRange.Count * 0.5f);
     }
 }

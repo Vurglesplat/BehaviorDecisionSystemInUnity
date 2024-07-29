@@ -21,11 +21,12 @@ public class BSnip_HandleSleep : BehaviorSnippet
         }
         else
         {
-            if ((Vector2.Distance(target.transform.position, charStats.gameObject.transform.position) < 0.1f))
+            if ((Vector2.Distance(charStats.Hammock.transform.position, charStats.gameObject.transform.position) < 0.2f))
             {
                 Debug.Log("IN BED");
                 
                 ChangeCurrentAction("Sleeping");
+                charStats.energy += charStats.bedRestoreRate;
             }
             else
             {
