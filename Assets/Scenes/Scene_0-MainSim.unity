@@ -20574,8 +20574,11 @@ MonoBehaviour:
   social: 1
   hungerFallRate: 3
   energyFallRate: 1.5
-  socialFallRate: 4
-  generalFallRateModifier: 0.0002
+  socialFallRate: 0.04
+  generalFallRateModifier: 0.00015
+  breadFillAmount: 1
+  bedRestoreRate: 0.01
+  socialRestoreRate: 0.05
   TV: {fileID: 1552053269}
   Hammock: {fileID: 2002376396}
   Oven: {fileID: 285864610}
@@ -24667,8 +24670,11 @@ MonoBehaviour:
   social: 1
   hungerFallRate: 4
   energyFallRate: 1.5
-  socialFallRate: 2
-  generalFallRateModifier: 0.0002
+  socialFallRate: 0.02
+  generalFallRateModifier: 0.00015
+  breadFillAmount: 1
+  bedRestoreRate: 0.01
+  socialRestoreRate: 0.07
   TV: {fileID: 1552053269}
   Hammock: {fileID: 543514336}
   Oven: {fileID: 285864610}
@@ -30522,8 +30528,11 @@ MonoBehaviour:
   social: 1
   hungerFallRate: 2
   energyFallRate: 1
-  socialFallRate: 2
-  generalFallRateModifier: 0.0002
+  socialFallRate: 0.02
+  generalFallRateModifier: 0.00015
+  breadFillAmount: 1
+  bedRestoreRate: 0.01
+  socialRestoreRate: 0.07
   TV: {fileID: 1552053269}
   Hammock: {fileID: 661665516}
   Oven: {fileID: 285864610}

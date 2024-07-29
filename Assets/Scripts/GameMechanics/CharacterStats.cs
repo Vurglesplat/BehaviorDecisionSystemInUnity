@@ -19,13 +19,13 @@ public class CharacterStats : MonoBehaviour
     [Header("Stats")]
     [SerializeField] float hungerFallRate = 0.0f;
     [SerializeField] float energyFallRate = 0.0f;
-    [SerializeField] float socialFallRate = 0.0f;
+    public float socialFallRate = 0.0f;
     [SerializeField] float generalFallRateModifier = 0.0001f;  // this is used to keep the other numbers more readable
 
     [Header("Restorables Amounts")]
     public float breadFillAmount = 1.0f;
     public float bedRestoreRate = 0.1f;
-    public float socialRestoreRate = 0.005f;
+    public float socialRestoreRate = 0.05f;
 
     [Header("Potential Targets")]
     public GameObject TV;

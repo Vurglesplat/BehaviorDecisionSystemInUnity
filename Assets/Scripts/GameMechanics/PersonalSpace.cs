@@ -31,6 +31,7 @@ public class PersonalSpace : MonoBehaviour
 
     private void Update()
     {
-        charStats.social += charStats.socialRestoreRate * (otherNPCsInRange.Count * 0.5f);
+        charStats.social -= charStats.socialFallRate * Time.deltaTime;
+        charStats.social += charStats.socialRestoreRate * (otherNPCsInRange.Count * 0.5f) * Time.deltaTime;
     }
 }
